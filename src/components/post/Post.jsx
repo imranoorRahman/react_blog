@@ -4,11 +4,8 @@ export default function Post() {
   return (
     <div className="post">
       <img
-        className="postImage"
-        // height="100px"
-        // width="100px"
+        className="postImg"
         width="100%"
-        // src="https://images.pexels.com/photos/3254753/pexels-photo-3254753.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
         src="https://images.pexels.com/photos/2317899/pexels-photo-2317899.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260"
         alt=""
       />
