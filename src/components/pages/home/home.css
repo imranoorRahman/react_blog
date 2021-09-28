@@ -1,3 +1,18 @@
 .home {
   display: flex;
 }
+
+/*
+Google fonts used:
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,600;0,700;1,400;1,500&family=Lato:ital,wght@1,100;1,300;1,400;1,700;1,900&family=Roboto:wght@100&display=swap" rel="stylesheet">
+
+CSS:
+font-family: 'Chakra Petch', sans-serif;
+font-family: 'Lato', sans-serif;
+font-family: 'Roboto', sans-serif;
+
+images used:
+https://www.pexels.com/search
+*/
