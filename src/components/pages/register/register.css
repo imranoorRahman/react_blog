@@ -1,0 +1,54 @@
+.register {
+  height: calc(100vh - 50px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(
+      rgba(255, 255, 255, 0.15),
+      rgba(255, 255, 255, 0.85)
+    ),
+    url("https://images.pexels.com/photos/2923/young-game-match-kids.jpg?auto=compress&cs=tinysrgb&h=750&w=1260");
+  background-size: cover;
+  font-family: "Chakra Petch", sans-serif;
+}
+.registerTitle {
+  font-size: 50px;
+}
+.registerForm {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.registerForm > label {
+  margin: 10px 0;
+}
+
+.registerInput {
+  padding: 10px;
+  background-color: white;
+  border: none;
+}
+
+.registerButton {
+  margin-top: 20px;
+  padding: 10px;
+  color: white;
+  background-color: skyblue;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.registerLoginButton {
+  position: absolute;
+  top: 60px;
+  right: 20px;
+  padding: 10px;
+  color: white;
+  background-color: tomato;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
