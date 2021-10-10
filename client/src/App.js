@@ -5,7 +5,7 @@ import Login from "./components/pages/login/Login";
 import Settings from "./components/pages/settings/Settings";
 import Write from "./components/pages/write/Write";
 import Single from "./components/pages/single/Single";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 function App() {
   const user = true; // no logged in user
