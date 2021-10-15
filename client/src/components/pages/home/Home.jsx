@@ -3,12 +3,37 @@ import Posts from "../../posts/Posts";
 import Sidebar from "../../sidebar/Sidebar";
 import "./home.css";
 
-export default function home() {
+import axios from "axios";
+import { useState, useEffect } from "react";
+
+export default function Home() {
+  const [posts, setPosts] = useState([]);
+
+  try {
+    useEffect(() => {
+      const fetchPosts = async () => {
+        // await Promise.all
+        const res = await axios.get("posts/");
+        // await axios
+        //   .get("posts/")
+        // .then((resp) => resp.json())
+        // .then((res) => setPosts(res))
+        // .catch((err) => console.log(err));
+
+        console.dir(res);
+        setPosts(res.data);
+      };
+      fetchPosts();
+    }, []);
+  } catch (err) {
+    console.log(err);
+  }
+
   return (
     <>
       <Header />
       <div className="home">
-        <Posts />
+        <Posts posts={posts} />
         <Sidebar />
       </div>
     </>

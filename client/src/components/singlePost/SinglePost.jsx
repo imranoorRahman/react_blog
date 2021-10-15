@@ -1,17 +1,31 @@
 import "./singlePost.css";
+import { useLocation } from "react-router";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 export default function SinglePost() {
+  const [post, setPost] = useState({});
+  const location = useLocation();
+  const path = location.pathname.split("/")[2];
+
+  useEffect(() => {
+    const getPost = async () => {
+      const res = await axios.get("posts/" + path);
+      // console.dir(res);
+      // setPost(res.data);
+    };
+    getPost();
+  }, [path]);
+
   return (
     <div className="singlepost">
       <div className="singlePost">
         <div className="singlePostWrapper">
-          <img
-            src="https://images.pexels.com/photos/7016745/pexels-photo-7016745.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260"
-            alt=""
-            className="singlePostImg"
-          />
+          {post.photo && (
+            <img src={post.photo} alt="" className="singlePostImg" />
+          )}
           <h1 className="singlePostTitle">
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+            {post.title}
             <div className="singlePostEdit">
               <i class="singlePostIcon far fa-edit"></i>
               <i class="singlePostIcon far fa-trash-alt"></i>
@@ -19,23 +33,13 @@ export default function SinglePost() {
           </h1>
           <div className="singlePostInfo">
             <span className="singlePostAuthor">
-              Author: <b>Imran</b>
+              Author: <b>{post.username}</b>
             </span>
-            <span className="singlePostDate">1 hour ago</span>
+            <span className="singlePostDate">
+              {new Date(post.createdAt).toDateString()}
+            </span>
           </div>
-          <p className="singlePostDesc">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem,
-            corrupti voluptatibus temporibus dolorum mollitia consequuntur ullam
-            sed deleniti? Rem enim magni minima deleniti saepe aliquid placeat
-            vel nesciunt deserunt. Sequi. Lorem ipsum dolor sit amet,
-            consectetur adipisicing elit. Autem, corrupti voluptatibus
-            temporibus dolorum mollitia consequuntur ullam sed deleniti? Rem
-            enim magni minima deleniti saepe aliquid placeat vel nesciunt
-            deserunt. Sequi. Lorem ipsum dolor sit amet, consectetur adipisicing
-            elit. Autem, corrupti voluptatibus temporibus dolorum mollitia
-            consequuntur ullam sed deleniti? Rem enim magni minima deleniti
-            saepe aliquid placeat vel nesciunt deserunt. Sequi.
-          </p>
+          <p className="singlePostDesc">{post.desc}</p>
         </div>
       </div>
     </div>

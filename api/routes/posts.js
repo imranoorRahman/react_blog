@@ -75,7 +75,7 @@ router.get("/", async (req, res) => {
       }else{
           posts = await Post.find();
       }
-      return res.status(200).json("All posts: " + posts);
+      return res.status(200).json(posts);
     } catch (err) {
       return res.status(500).json(err);
     }

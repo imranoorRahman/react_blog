@@ -1,40 +1,27 @@
 import "./post.css";
+import { Link } from "react-router-dom";
 
-export default function Post() {
+export default function Post({ post }) {
   return (
     <div className="post">
-      <img
-        className="postImg"
-        width="100%"
-        src="https://images.pexels.com/photos/2317899/pexels-photo-2317899.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260"
-        alt=""
-      />
+      {post.photo && (
+        <img className="postImg" width="100%" src={post.photo} alt="" />
+      )}
       <div className="postInfo">
         <div className="postCats">
-          <span className="postCat">Technology</span>
-          <span className="postCat">Crypto</span>
-          <span className="postCat">Fitness</span>
-          <span className="postCat">Deen</span>
+          {post.categories.map((c) => {
+            <span className="postCat">{c.name}</span>;
+          })}
         </div>
-        <span className="postTitle">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit.
-        </span>
+        <Link to={`/post/${post._id}`} className="link">
+          <span className="postTitle">{post.title}</span>
+        </Link>
         <hr />
-        <span className="postDate">01-01-1990</span>
+        <span className="postDate">
+          {new Date(post.createdAt).toDateString()}
+        </span>
       </div>
-      <p className="postDesc">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat, odio
-        adipisci cumque incidunt cupiditate soluta blanditiis quo suscipit quia
-        asperiores veritatis ex molestias tempore natus illum distinctio veniam
-        exercitationem laudantium! Lorem ipsum dolor sit amet consectetur
-        adipisicing elit. Quaerat, odio adipisci cumque incidunt cupiditate
-        soluta blanditiis quo suscipit quia asperiores veritatis ex molestias
-        tempore natus illum distinctio veniam exercitationem laudantium! Lorem
-        ipsum dolor sit amet consectetur adipisicing elit. Quaerat, odio
-        adipisci cumque incidunt cupiditate soluta blanditiis quo suscipit quia
-        asperiores veritatis ex molestias tempore natus illum distinctio veniam
-        exercitationem laudantium!
-      </p>
+      <p className="postDesc">{post.desc}</p>
     </div>
   );
 }
