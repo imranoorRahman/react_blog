@@ -8,7 +8,7 @@ import Single from "./components/pages/single/Single";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 function App() {
-  const user = true; // no logged in user
+  let user; // = true; // no logged in user
   return (
     <Router>
       <TopBar />
