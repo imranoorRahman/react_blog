@@ -40,6 +40,11 @@
   width: 70vw;
 }
 
+.writeTitle {
+  font-size: 30px;
+  font-family: "Chakra Petch", sans-serif;
+}
+
 .writeInput:focus {
   outline: none;
 }

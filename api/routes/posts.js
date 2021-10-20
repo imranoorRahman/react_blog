@@ -6,7 +6,7 @@ router.post("/", async (req, res) => {
     const newPost = new Post(req.body);
     try{
         const savedPost = await newPost.save();
-        return res.status(200).json("Successfully added new post: " + savedPost)
+        return res.status(200).json(savedPost)
     }catch(err){
         return res.status(500).json("Error trying to post: " + err)
     }

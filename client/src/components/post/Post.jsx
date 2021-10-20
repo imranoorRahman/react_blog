@@ -2,10 +2,16 @@ import "./post.css";
 import { Link } from "react-router-dom";
 
 export default function Post({ post }) {
+  const PublicFolder = "http://localhost:5000/img/";
   return (
     <div className="post">
       {post.photo && (
-        <img className="postImg" width="100%" src={post.photo} alt="" />
+        <img
+          className="postImg"
+          width="100%"
+          src={PublicFolder + post.photo}
+          alt=""
+        />
       )}
       <div className="postInfo">
         <div className="postCats">

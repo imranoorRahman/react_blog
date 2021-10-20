@@ -3,6 +3,7 @@ const app = express();
 const dotenv = require("dotenv")
 const mongoose = require("mongoose");
 const multer = require("multer")
+const path = require("path")
 
 const authRoute = require("./routes/auth");
 const userRoute = require("./routes/users");
@@ -33,6 +34,7 @@ app.use("/api/auth", authRoute);
 app.use("/api/users", userRoute);
 app.use("/api/posts", postRoute);
 app.use("/api/categories", categoryRoute);
+app.use("/img", express.static(path.join(__dirname,"/img")))
 
 app.listen("5000", () => {
     console.log("Backend is alive!");
