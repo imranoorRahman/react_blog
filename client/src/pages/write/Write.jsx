@@ -13,8 +13,8 @@ export default function Write() {
     e.preventDefault();
     const newPost = {
       username: user.username,
-      title: title,
-      desc: desc,
+      title,
+      desc,
     };
     if (file) {
       const data = new FormData();
