@@ -9,7 +9,10 @@ export default function SinglePost() {
   const [post, setPost] = useState({});
   const location = useLocation();
   const path = location.pathname.split("/")[2];
+
+  // const PublicFolder = `${process.env.PUBLIC_FOLDER}img/`;
   const PublicFolder = "http://localhost:5000/img/";
+
   const { user } = useContext(Context);
   const [title, setTitle] = useState("");
   const [desc, setDesc] = useState("");

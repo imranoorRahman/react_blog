@@ -5,6 +5,10 @@ import "./topbar.css";
 
 export default function TopBar() {
   const { user, dispatch } = useContext(Context);
+
+  // const PublicFolder = `${process.env.PUBLIC_FOLDER}img/`;
+  const PublicFolder = "http://localhost:5000/img/";
+
   const handleLogout = () => {
     dispatch({ type: "LOGOUT" });
   };
@@ -44,7 +48,13 @@ export default function TopBar() {
       </div>
       <div className="topRight">
         {user ? (
-          <img src={user.profilePic} alt="pp" className="topImg" />
+          <Link to="/settings">
+            <img
+              src={PublicFolder + user.profilePic}
+              alt="pp"
+              className="topImg"
+            />
+          </Link>
         ) : (
           <ul className="topList">
             <li className="topListItem">
