@@ -13,7 +13,11 @@ const categoryRoute = require("./routes/categories");
 dotenv.config();
 app.use(express.json());
 
-mongoose.connect(process.env.MONGO_URI)
+app.get('/', (req, res) => {
+    res.send("App is running!");
+})
+
+mongoose.connect(process.env.REACT_APP_MONGO_URI)
 .then(console.log("Connected to Mongo!"))
 .catch((err) => console.log("Error: " + err));
 
@@ -36,6 +40,6 @@ app.use("/api/posts", postRoute);
 app.use("/api/categories", categoryRoute);
 app.use("/img", express.static(path.join(__dirname,"/img")))
 
-app.listen("5000", () => {
+app.listen(process.env.PORT || "5000", () => {
     console.log("Backend is alive!");
 });

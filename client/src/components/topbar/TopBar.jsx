@@ -6,7 +6,6 @@ import "./topbar.css";
 export default function TopBar() {
   const { user, dispatch } = useContext(Context);
 
-  // const PublicFolder = `${process.env.PUBLIC_FOLDER}img/`;
   const PublicFolder = "http://localhost:5000/img/";
 
   const handleLogout = () => {
